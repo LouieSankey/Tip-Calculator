@@ -1,7 +1,9 @@
+
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -9,42 +11,56 @@
     tools:context=".MyActivity"
     android:id="@+id/GridLayout"
     android:columnCount="2"
-    android:useDefaultMargins="true">
+    android:useDefaultMargins="true"
+    android:rowCount="1"
+    >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/amountTextView"/>
+        android:text="@string/amount"
+        android:id="@+id/amountTextView"
+        android:gravity="right"
+        android:labelFor="@+id/amountEditText"
+        />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         android:inputType="number"
-        android:ems="10"
-        android:id="@+id/amountEditText"/>
+        android:id="@+id/amountEditText"
+        android:digits="0123456789"
+        android:maxLength="6"
+        android:width="0dp"
+        android:editable="false"
+        />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/textView_Padding"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView"
+        android:id="@+id/amountDisplayTextView"
         android:layout_row="0"
-        android:layout_column="1"/>
+        android:layout_column="1"
+        android:gravity="fill_horizontal"
+        android:background="@android:color/holo_blue_bright"
+        android:width="0dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/customPercentTextView"/>
+        android:text="@string/custom_tip_percentage"
+        android:id="@+id/customTipPercentTextView"
+        android:gravity="center_vertical|right"/>
 
     <SeekBar
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/customTipSeekBar"/>
+        android:id="@+id/customTipSeekBar"
+        android:progress="18"
+        android:max="30"
+        android:minWidth="20dp"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -57,71 +73,106 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/percent15TextView"/>
+            android:text="@string/fifteen_percent"
+            android:id="@+id/percent15TextView"
+            android:padding="@dimen/textView_Padding"
+            android:layout_weight="1"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/percentCustomTextView"/>
+            android:text="@string/eighteen_percent"
+            android:id="@+id/percentCustomTextView"
+            android:padding="@dimen/textView_Padding"
+            android:layout_weight="1"
+            android:gravity="center"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/tipTextView"/>
+        android:text="@string/tip"
+        android:id="@+id/tipTextView"
+        android:gravity="right"
+        android:layout_gravity="center|right"/>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tipLinearLayout"
+        android:layout_gravity="fill_horizontal"
         >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/textView_Padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/tip15TextView"/>
+            android:id="@+id/tip15TextView"
+            android:background="@android:color/holo_orange_light"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginRight="8dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/textView_Padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/tipCustomTextView"/>
+            android:id="@+id/tipCustomTextView"
+            android:background="@android:color/holo_orange_light"
+            android:layout_weight="1"
+            android:gravity="center"
+            />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/totalTextView"/>
+        android:text="@string/total"
+        android:id="@+id/totalTextView"
+        android:gravity="right"
+        android:layout_gravity="center|right"/>
 
     <LinearLayout
         android:orientation="horizontal"
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/totalLinearLayout">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/textView_Padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/total15TextView"/>
+            android:id="@+id/total15TextView"
+            android:background="@android:color/holo_orange_light"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/textView_Padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/totalCustomTextView"/>
+            android:id="@+id/totalCustomTextView"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"/>
     </LinearLayout>
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        />
 </GridLayout>
